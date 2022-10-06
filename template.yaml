@@ -12,13 +12,43 @@ Globals:
     Runtime: nodejs14.x
 
 Resources:
-  GetItemsFunction:
+  GetRequestFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: items.getItems
+      Handler: sample.getRequest
       Events:
         SampleApi:
           Type: Api
           Properties:
             Path: /
             Method: get
+  PostRequestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sample.postRequest
+      Events:
+        SampleApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
+  PutRequestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sample.putRequest
+      Events:
+        SampleApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: put
+  DeleteRequestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sample.deleteRequest
+      Events:
+        SampleApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: delete
