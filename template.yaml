@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+# More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+# More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+
+Globals:
+  Function:
+    Timeout: 3
+    CodeUri: src/
+    Runtime: nodejs14.x
+
+Resources:
+  GetItemsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: items.getItems
+      Events:
+        SampleApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
