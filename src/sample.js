@@ -1,6 +1,6 @@
 const getRequest = async (event, context) => {
   console.log('[GET] Received GET request');
-  console.log('[GET] Query param = NOT IMPLEMENTED'); // TODO
+  console.log('[GET] Query params = ', event.queryStringParameters);
   return { statusCode: 200, body: JSON.stringify({ message:'Successful' })};
 };
 
